@@ -7,6 +7,47 @@ This project contains Linux bash scripts to use with docker.
 ## AVAILABLE SCRIPTS
 
 <!-- TODO: add scripts -->
+### docker_build_multiple_images
+
+Generates all docker images contained in a folder named *docker-images*. The project must have the following structure:
+
+```bash
+- docker-images
+    - base_name
+        - Dockerfile
+        - tags
+    - another_base_name
+        - Dockerfile
+        - tags
+```
+
+Each folder represent a type of image. The folder name will be base name of the generated folder.
+
+The file tags contains the different tags of the base image used. It must contain one tag per line and finished with an empty line. Example:
+
+```bash
+8-alpine
+10-alpine
+
+```
+
+It has the following available options:
+
+```bash
+-h | --help: display help.
+-p | --push: push images after building.
+-x | --proxy: use proxy.
+-b | --base-name: base name of images.
+-c | --commit-sha: sha of commit to attach to image.
+-t | --tag: tag of images.
+```
+
+Also, it can be used envieronment variables:
+
+```bash
+DOCKER_BUILD_BASE_NAME=
+DOCKER_BUILD_TAG=
+```
 
 ### GITLAB-CI LINT TEST
 
