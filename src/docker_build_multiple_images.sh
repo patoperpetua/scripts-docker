@@ -120,13 +120,13 @@ do
         do
             echo "Building image name ${DOCKER_BUILD_IMAGE_NAME}-${BASE_IMAGE_TAG}"
             DOCKER_CONFIG="${DOCKER_BUILD_ENV_PROXY}" docker build --rm -f "${DOCKER_BUILD_FILE}" -t \
-                "${DOCKER_BUILD_BASE_NAME}/${DOCKER_BUILD_IMAGE_NAME}-${BASE_IMAGE_TAG}:${DOCKER_BUILD_TAG}" \
+                "${DOCKER_BUILD_BASE_NAME}/${DOCKER_BUILD_IMAGE_NAME}:${BASE_IMAGE_TAG}-${DOCKER_BUILD_TAG}" \
                 --label "version=${DOCKER_BUILD_TAG}" \
                 --label "vcs-ref=${DOCKER_BUILD_COMMIT_SHA}" \
                 --label "build-date=${DATE}" \
                 --build-arg BASE_IMAGE_TAG="${BASE_IMAGE_TAG}" .
             if [ "${DOCKER_BUILD_PUSH}" == "1" ]; then
-                docker push "${DOCKER_BUILD_BASE_NAME}/${DOCKER_BUILD_IMAGE_NAME}-${BASE_IMAGE_TAG}:${DOCKER_BUILD_TAG}"
+                docker push "${DOCKER_BUILD_BASE_NAME}/${DOCKER_BUILD_IMAGE_NAME}:${BASE_IMAGE_TAG}-${DOCKER_BUILD_TAG}"
             fi
         done < "$input"
     else
