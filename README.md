@@ -49,25 +49,12 @@ DOCKER_BUILD_BASE_NAME=
 DOCKER_BUILD_TAG=
 ```
 
-### GITLAB-CI LINT TEST
+#### Download
 
-You can test your .gitlab-ci.yml files by executing the following:
-
-```bash
-curl -s https://singletonsd.gitlab.io/scripts/gitlab-ci/latest/gitlab-ci_lint_test_standalone.sh | bash /dev/stdin
-```
-
-That script contains the following options:
+It can be downloaded by:
 
 ```bash
--h | --help: display help.
--o | --only: the name of the file or folder to test.
-```
-
-Also you can download the script by:
-
-```bash
-curl -o gitlab-ci_lint_test_standalone.sh -L https://singletonsd.gitlab.io/scripts/gitlab-ci/latest/gitlab-ci_lint_test_standalone.sh
+curl -o docker_build_multiple_images.sh -L https://singletonsd.gitlab.io/scripts/docker/latest/docker_build_multiple_images.sh
 ```
 
 ## STRUCTURE
@@ -88,7 +75,7 @@ https://singletonsd.gitlab.io/scripts/docker/v0.0.2/gitlab-ci_lint_test_standalo
 
 - [ ] Fix documentation.
 - [X] Add script to download test script from gitlab pages.
-- [ ] Zip all scripts and put inside pages.
+- [X] Zip all scripts and put inside pages.
 
 ----------------------
 
